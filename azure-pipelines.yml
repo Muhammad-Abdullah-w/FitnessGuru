@@ -41,7 +41,7 @@ stages:
           displayName: 'Install Selenium'
 
         - script: |
-            python path/to/your/selenium/tests.py
+            python tests.py
             # Replace 'path/to/your/selenium/tests.py' with the actual path to your Selenium tests
           displayName: 'Run Selenium Tests'
 
