@@ -37,12 +37,10 @@ stages:
 
         - script: |
             pip install selenium
-            # Additional setup steps if needed
           displayName: 'Install Selenium'
 
         - script: |
             python tests.py
-            # Replace 'path/to/your/selenium/tests.py' with the actual path to your Selenium tests
           displayName: 'Run Selenium Tests'
 
   - stage: 
