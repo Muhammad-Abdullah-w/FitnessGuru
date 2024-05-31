@@ -81,7 +81,7 @@ stages:
               - task: AzureRmWebAppDeployment@4
                 inputs:
                   ConnectionType: 'AzureRM'
-                  azureSubscription: 'Muhammad-Abdullah-w'
+                  azureSubscription: 'DevopsProjectService'
                   appType: 'webApp'
                   WebAppName: 'learning-app-01'
                   packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
@@ -104,7 +104,7 @@ stages:
               - task: AzureRmWebAppDeployment@4
                 inputs:
                   ConnectionType: 'AzureRM'
-                  azureSubscription: 'Muhammad-Abdullah-w'
+                  azureSubscription: 'DevopsProjectService'
                   appType: 'webApp'
                   WebAppName: 'learning-app-01'
                   packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
