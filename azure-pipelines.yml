@@ -104,7 +104,7 @@ stages:
               - task: AzureRmWebAppDeployment@4
                 inputs:
                   ConnectionType: 'AzureRM'
-                  azureSubscription: 'Personal-Az-Acc'
+                  azureSubscription: 'Muhammad-Abdullah-w'
                   appType: 'webApp'
                   WebAppName: 'learning-app-01'
                   packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
