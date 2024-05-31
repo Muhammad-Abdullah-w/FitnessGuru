@@ -26,10 +26,10 @@ stages:
           artifact: web-app 
 
   - stage: 
-    displayName: Install Selenium
+    displayName: Selenium Testing
     jobs:
-    - job: install_selenium
-      displayName: Install Selenium
+    - job: selenium_tests
+      displayName: Run Selenium Tests
       steps:
         - task: UsePythonVersion@0
           inputs:
@@ -37,7 +37,13 @@ stages:
 
         - script: |
             pip install selenium
+            # Additional setup steps if needed
           displayName: 'Install Selenium'
+
+        - script: |
+            python path/to/your/selenium/tests.py
+            # Replace 'path/to/your/selenium/tests.py' with the actual path to your Selenium tests
+          displayName: 'Run Selenium Tests'
 
   - stage: 
     displayName: Deploy DEV
