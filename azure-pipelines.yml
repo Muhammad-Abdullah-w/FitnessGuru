@@ -45,7 +45,7 @@ stages:
               - task: AzureRmWebAppDeployment@4
                 inputs:
                   ConnectionType: 'AzureRM'
-                  azureSubscription: 'Devops'  # Ensure this matches your service connection name
+                  azureSubscription: 'DevopsProjectService'  
                   appType: 'webApp'
                   WebAppName: 'RGATES2592924615-Canary'
                   packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
@@ -91,7 +91,7 @@ stages:
               - task: AzureRmWebAppDeployment@4
                 inputs:
                   ConnectionType: 'AzureRM'
-                  azureSubscription: 'Devops'  # Ensure this matches your service connection name
+                  azureSubscription: 'DevopsProjectService' 
                   appType: 'webApp'
                   WebAppName: 'RGATES2592924615-Prod'
                   packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
