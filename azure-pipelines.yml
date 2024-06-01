@@ -47,7 +47,7 @@ stages:
                   ConnectionType: 'AzureRM'
                   azureSubscription: 'DevopsProjectService'  # Ensure this matches your service connection name
                   appType: 'webApp'
-                  WebAppName: 'Act7-WebAp-stagging'
+                  WebAppName: 'act7-webap-staging'
                   packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
                   enableCustomDeployment: true
                   DeploymentType: 'webDeploy'
