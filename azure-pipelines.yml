@@ -39,7 +39,7 @@ stages:
         - script: |
             pip install selenium
           displayName: 'Install Selenium'
-
+                
         - script: |
             pip install webdriver_manager
           displayName: 'Install webdriver_manager'
