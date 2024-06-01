@@ -27,7 +27,20 @@ class CultFitTest(unittest.TestCase):
     def test_footer_present(self):
         footer = self.driver.find_element(By.ID, "footer")
         self.assertTrue(footer.is_displayed())
+        
+    def test_video_autoplay(self):
+        main_section = self.driver.find_element(By.ID, "home_section")
+        video = main_section.find_element(By.CSS_SELECTOR, ".main_section_video")
+        autoplay_attribute = video.get_attribute("autoplay")
+        self.assertTrue(autoplay_attribute, "Video should autoplay")
 
+    def test_footer_links(self):
+        footer = self.driver.find_element(By.ID, "footer")
+        footer_links = footer.find_elements(By.TAG_NAME, "a")
+        for link in footer_links:
+            href = link.get_attribute("href")
+            self.assertTrue(href, "Footer link should have a valid URL")
+    
     def tearDown(self):
         self.driver.quit()
 
