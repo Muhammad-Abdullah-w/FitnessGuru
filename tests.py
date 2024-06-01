@@ -8,7 +8,7 @@ class CultFitTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-        self.driver.get("https://act7-webap.azurewebsites.net/")  # Update with the correct path to your HTML file
+        self.driver.get("https://rgates2592924615-canary.azurewebsites.net")  # Update with the correct path to your HTML file
 
     def test_page_title(self):
         self.assertEqual(self.driver.title, "Get Fitness Workouts, Gyms, Health Care, & Healthy Food in India by Cult.fit")
