@@ -16,7 +16,7 @@ class FreshWorksTest(unittest.TestCase):
             self.driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
         
         #self.driver.implicitly_wait(5)
-        #self.driver.get("https://www.freshworks.com/")
+        #self.driver.get("https://act7-webap.azurewebsites.net//")
 
     def test_freshWorksLogo(self):
         try:
