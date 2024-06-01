@@ -25,6 +25,54 @@ stages:
         - publish: $(Build.ArtifactStagingDirectory)
           artifact: web-app 
 
+
+  - stage: 
+    displayName: Deploy DEV
+    jobs:
+    - deployment: DEV
+      displayName: Deploy to Web App
+      environment: DEV
+      strategy: 
+        runOnce:
+          deploy:
+            steps:
+              - download: current
+                artifact: web-app
+
+              - task: AzureRmWebAppDeployment@4
+                inputs:
+                  ConnectionType: 'AzureRM'
+                  azureSubscription: 'DevopsProjectService'  # Ensure this matches your service connection name
+                  appType: 'webApp'
+                  WebAppName: 'Act7-WebAp'
+                  packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
+                  enableCustomDeployment: true
+                  DeploymentType: 'webDeploy'
+
+  - stage: 
+    displayName: Deploy TEST
+    jobs:
+    - deployment: TEST
+      displayName: Deploy to Web App
+      environment: TEST
+      strategy: 
+        runOnce:
+          deploy:
+            steps:
+              - download: current
+                artifact: web-app
+
+              - task: AzureRmWebAppDeployment@4
+                inputs:
+                  ConnectionType: 'AzureRM'
+                  azureSubscription: 'DevopsProjectService'  # Ensure this matches your service connection name
+                  appType: 'webApp'
+                  WebAppName: 'Act7-WebAp'
+                  packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
+                  enableCustomDeployment: true
+                  DeploymentType: 'webDeploy'
+
+
   - stage: 
     displayName: Selenium Testing
     jobs:
@@ -46,4 +94,3 @@ stages:
         - script: |
             python tests.py
           displayName: 'Run Selenium Tests'
-
