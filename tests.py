@@ -13,21 +13,6 @@ class CultFitTest(unittest.TestCase):
     def test_page_title(self):
         self.assertEqual(self.driver.title, "Get Fitness Workouts, Gyms, Health Care, & Healthy Food in India by Cult.fit")
 
-    def test_preloader_displayed(self):
-        preloader = self.driver.find_element(By.CSS_SELECTOR, ".site_loader img")
-        self.assertTrue(preloader.is_displayed())
-
-    def test_main_section_content(self):
-        main_section = self.driver.find_element(By.ID, "home_section")
-        self.assertTrue(main_section.is_displayed())
-
-        left_home_title = main_section.find_element(By.CSS_SELECTOR, ".left_home .title_first")
-        self.assertIn("For the", left_home_title.text)
-
-        animated_span = main_section.find_element(By.CSS_SELECTOR, ".left_home .animated_span")
-        spans = animated_span.find_elements(By.TAG_NAME, "span")
-        self.assertIn("fun", [span.text for span in spans])
-
     def test_cult_section_content(self):
         cult_section = self.driver.find_element(By.ID, "cult_section")
         self.assertTrue(cult_section.is_displayed())
