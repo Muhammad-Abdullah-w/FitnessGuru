@@ -47,7 +47,7 @@ stages:
                   ConnectionType: 'AzureRM'
                   azureSubscription: 'Devops'  # Ensure this matches your service connection name
                   appType: 'webApp'
-                  WebAppName: 'RGATES2592924615-Prod'
+                  WebAppName: 'RGATES2592924615-Canary'
                   packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
                   enableCustomDeployment: true
                   DeploymentType: 'webDeploy'
