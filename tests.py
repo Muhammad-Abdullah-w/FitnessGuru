@@ -34,12 +34,11 @@ class CultFitTest(unittest.TestCase):
         autoplay_attribute = video.get_attribute("autoplay")
         self.assertTrue(autoplay_attribute, "Video should autoplay")
 
-    def test_footer_links(self):
-        footer = self.driver.find_element(By.ID, "footer")
-        footer_links = footer.find_elements(By.TAG_NAME, "a")
-        for link in footer_links:
-            href = link.get_attribute("href")
-            self.assertTrue(href, "Footer link should have a valid URL")
+    def test_video_mute_icon_displayed(self):
+        main_section = self.driver.find_element(By.ID, "home_section")
+        video = main_section.find_element(By.CSS_SELECTOR, ".main_section_video")
+        mute_icon = main_section.find_element(By.CSS_SELECTOR, ".audio_icon img")
+        self.assertTrue(mute_icon.is_displayed(), "Mute icon should be displayed")
     
     def tearDown(self):
         self.driver.quit()
