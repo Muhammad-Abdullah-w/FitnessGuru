@@ -1,7 +1,3 @@
-# Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
 trigger:
 - main
 
@@ -26,3 +22,25 @@ stages:
         repository: 'userisabdullah/devops'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+
+- stage: Terraform
+  displayName: 'Terraform Deployment'
+  jobs:
+  - job: Terraform
+    displayName: 'Terraform Operations'
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - script: |
+        # Install Terraform
+        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+        sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+        sudo apt-get update && sudo apt-get install terraform
+
+        # Execute Terraform commands
+        cd $(System.DefaultWorkingDirectory)
+        terraform init
+        terraform validate
+        terraform plan
+        terraform apply -auto-approve
+      displayName: 'Install Terraform and Execute Commands'
